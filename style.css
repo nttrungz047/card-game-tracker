@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+  }
+  input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900 border border-slate-700;
+  }
+  .chevron {
+    @apply transition-transform duration-200;
+  }
+  .collapsed .chevron {
+    @apply -rotate-90;
+  }
+  .collapsed .panel {
+    @apply hidden;
+  }
+}
