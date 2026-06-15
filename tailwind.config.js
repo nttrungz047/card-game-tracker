@@ -1,5 +1,5 @@
 export default {
-  content: ['./index.html', './main.js'],
+  content: ['./index.html', './src/main.js'],
   theme: {
     extend: {},
   },
