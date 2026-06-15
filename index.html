@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theo dõi điểm bài</title>
+  <script type="module" crossorigin src="/card-game-tracker/assets/index-kgyH5RhP.js"></script>
+  <link rel="stylesheet" crossorigin href="/card-game-tracker/assets/index-DO0lgiLO.css">
+</head>
+<body class="text-slate-100 min-h-screen pb-10">
+  <div class="max-w-md mx-auto px-3 pt-4 space-y-3">
+
+    <h1 class="text-xl font-bold text-center text-amber-400 mb-1">🃏 Theo dõi điểm bài</h1>
+
+    <div class="rounded-xl p-3 bg-slate-900 border border-slate-700" id="setupSection">
+      <div class="flex justify-between items-center cursor-pointer" onclick="toggleCollapse('setupSection')">
+        <h2 class="font-semibold">Người chơi</h2>
+        <span class="chevron inline-flex items-center justify-center w-6 h-6 text-slate-300 transition-transform duration-200">▾</span>
+      </div>
+      <div class="panel mt-2 space-y-2">
+        <div id="playerInputs" class="space-y-2"></div>
+        <button id="addPlayerButton" class="w-full bg-slate-700 hover:bg-slate-600 rounded-lg py-2 text-base">+ Thêm người chơi</button>
+        <button id="startGameButton" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-lg py-2 text-base">Bắt đầu / Cập nhật danh sách</button>
+      </div>
+    </div>
+
+    <!-- Round Modal -->
+    <div id="roundModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-sm mx-3 shadow-2xl">
+        <h2 class="text-lg font-bold text-amber-400 mb-1">Vòng mới <span id="roundNum" class="text-base"></span></h2>
+        <p class="text-xs text-slate-400 mb-4">Nhập số lá còn lại (người tới ghi 0)</p>
+        <div id="roundInputs" class="space-y-3 mb-5"></div>
+        <div class="flex gap-3">
+          <button id="submitRoundButton" class="flex-1 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold rounded-lg py-2 text-base">Lưu vòng</button>
+          <button id="closeRoundModal" class="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-100 font-semibold rounded-lg py-2 text-base">Hủy</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-xl p-3 bg-slate-900 border border-slate-700" id="dashSection">
+      <div class="flex justify-between items-center cursor-pointer" onclick="toggleCollapse('dashSection')">
+        <h2 class="font-semibold">Dashboard</h2>
+        <span class="chevron inline-flex items-center justify-center w-6 h-6 text-slate-300 transition-transform duration-200">▾</span>
+      </div>
+      <div class="panel mt-2 space-y-3">
+        <button id="addRoundButton" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-lg py-2 text-base">+ Thêm vòng mới</button>
+        <div id="totalsTable" class="text-base"></div>
+        <canvas id="lineChart" height="180"></canvas>
+        <canvas id="barChart" height="180"></canvas>
+      </div>
+    </div>
+
+    <div class="rounded-xl p-3 bg-slate-900 border border-slate-700" id="historySection">
+      <div class="flex justify-between items-center cursor-pointer" onclick="toggleCollapse('historySection')">
+        <h2 class="font-semibold">Lịch sử các vòng</h2>
+        <span class="chevron inline-flex items-center justify-center w-6 h-6 text-slate-300 transition-transform duration-200">▾</span>
+      </div>
+      <div class="panel mt-2 space-y-2" id="historyList"></div>
+    </div>
+
+    <button id="resetButton" class="w-full bg-red-600 hover:bg-red-500 rounded-lg py-2 text-base font-semibold mt-2">🗑 Reset toàn bộ</button>
+
+  </div>
+
+</body>
+</html>
